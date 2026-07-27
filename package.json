@@ -1,0 +1,33 @@
+{
+  "name": "quan-ly-vat-tu-bom",
+  "version": "1.0.0",
+  "description": "Ứng dụng desktop cho Hệ thống Quản Lý Vật Tư BOM (Kim Long Motor)",
+  "main": "main.js",
+  "author": "Kim Long Motor",
+  "scripts": {
+    "start": "electron .",
+    "build-win": "electron-builder --win --x64",
+    "build-mac": "electron-builder --mac",
+    "build-linux": "electron-builder --linux"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.kimlongmotor.quanlyvattu",
+    "productName": "Quan Ly Vat Tu BOM",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "icon.ico"],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}
