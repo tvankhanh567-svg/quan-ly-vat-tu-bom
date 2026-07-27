@@ -1,0 +1,31 @@
+name: Build Windows EXE
+
+# Chạy tự động mỗi khi bạn tải code lên nhánh main, hoặc bấm nút "Run workflow" thủ công
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Lấy code từ repo
+        uses: actions/checkout@v4
+
+      - name: Cài Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cài các gói cần thiết
+        run: npm install
+
+      - name: Build file .exe
+        run: npm run build-win
+
+      - name: Tải file .exe lên (Artifact) để tải về
+        uses: actions/upload-artifact@v4
+        with:
+          name: QuanLyVatTuBOM-Windows-Installer
+          path: dist/*.exe
