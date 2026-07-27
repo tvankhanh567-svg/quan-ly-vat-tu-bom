@@ -18,6 +18,7 @@
     "appId": "com.kimlongmotor.quanlyvattu",
     "productName": "Quan Ly Vat Tu BOM",
     "directories": { "output": "dist" },
+    "publish": null,
     "files": ["main.js", "icon.ico"],
     "win": {
       "target": "nsis",
